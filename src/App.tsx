@@ -1,20 +1,14 @@
+import React from 'react';
+
 import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar';
 
 import styles from './App.module.css';
 
-import './styles.css'
-import { Post } from './components/Post';
+import './global.css'
+import { Post, PostType } from './components/Post';
 
-// author: {
-//   avatar_url:"",
-//   name: "",
-//   role: ""
-// },
-// publishedAt: Date,
-// content:string
-
-const posts = [
+const posts: PostType[] = [
   {
     id: 1,
     author: {
@@ -22,7 +16,6 @@ const posts = [
       name: "Jefferson Ferreira",
       role: "CTO @Rocketseat"
     },
-    publishedAt: new Date(),
     content: [
       {
         type: 'paragraph',
@@ -46,7 +39,6 @@ const posts = [
       name: "Diego Fernandes",
       role: "CTO @Rocketseat"
     },
-    publishedAt: new Date(),
     content: [
       {
         type: 'paragraph',
@@ -79,9 +71,7 @@ function App() {
             return (
               <Post
                 key={post.id}
-                author={post.author}
-                content={post.content}
-                publishedAt={post.publishedAt}
+                post={post}
               />
             )
           })}
